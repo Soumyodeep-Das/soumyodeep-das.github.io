@@ -3,6 +3,7 @@ import image from "../assets/second-img.jpg"
 import shape from "../assets/graph.png"
 import Education from "./Education";
 import Skills from "./Skills";
+import Experience from "./Experience";
 
 const About = () => {
     const [activeTab, setActiveTab] = useState('home');
@@ -67,7 +68,7 @@ const About = () => {
                 {activeTab === 'home' && <div></div>}
                 {activeTab === 'education' && <Education />}
                 {activeTab === 'skills' && <Skills />}
-                {activeTab === 'experience' && <div></div>}
+                {activeTab === 'experience' && <Experience />}
             </div>
         </>
     );

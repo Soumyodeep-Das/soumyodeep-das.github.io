@@ -27,15 +27,15 @@ const Education = () => {
 
     return (
         <>
-            <div className="flex flex-col justify-center items-center mt-10 mx-5">
-                <h1 className="font-bold text-2xl mb-4">Education</h1>
-                <div className="flex flex-col justify-center items-center w-full space-y-4">
-                    {educationData.map((edu, index) => (
-                        <div key={index} className="w-full border p-5">
-                            <h2 className="font-bold text-xl">{edu.degree}</h2>
-                            {edu.field && <p>{edu.field}</p>}
-                            <p>{edu.years}</p>
-                            <p>{edu.institution}</p>
+            <div className="flex flex-col items-center mt-10 mx-5">
+                <h1 className="font-bold text-3xl text-pink-500 mb-6">Education</h1>
+                <div className="bg-gray-900 p-8 rounded-lg shadow-lg max-w-6xl w-2/3">
+                    {educationData.map((education) => (
+                        <div key={education.id} className="mb-6">
+                            <h2 className="font-bold text-xl text-white">{education.degree}</h2>
+                            <h3 className="text-gray-400 mb-2">{education.field}</h3>
+                            <p className="text-gray-300">{education.years}</p>
+                            <p className="text-gray-300 mt-2">{education.institution}</p>
                         </div>
                     ))}
                 </div>

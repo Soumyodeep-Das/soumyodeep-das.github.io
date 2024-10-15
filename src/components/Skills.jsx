@@ -39,7 +39,7 @@ const Skills = () => {
 return (
     <div className="flex flex-col items-center mt-10 mx-5">
         <h1 className="font-bold text-3xl text-pink-500 mb-6">Most Used Languages</h1>
-        <div className="bg-gray-900 p-8 rounded-lg shadow-lg max-w-6xl w-full"> {/* Increased max-w-4xl to max-w-6xl */}
+        <div className="bg-gray-900 p-8 rounded-lg shadow-lg max-w-6xl w-2/3"> {/* Increased max-w-4xl to max-w-6xl */}
             {skillsData.map((skill) => (
                 <div key={skill.id} className="flex items-center mb-4">
                     <div className="mr-4">{skill.icon}</div>
