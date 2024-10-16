@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import {
   FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaPhp,
   FaDocker, FaNodeJs,
+  FaAndroid,
 } from "react-icons/fa";
 import {
-  SiC, SiKotlin, SiTypescript, SiEjs, SiMongodb, SiSpring, SiRuby, SiMysql,
+  SiC, SiKotlin, SiTypescript, SiMongodb, SiSpring, SiMysql,
 } from "react-icons/si";
 
 const Skills = () => {
@@ -15,25 +16,27 @@ const Skills = () => {
     { id: 4, skill: "Java", level: "11.06%", icon: <FaJava color="#5382A1" size={30} /> },
     { id: 5, skill: "JavaScript", level: "9.01%", icon: <FaJs color="#F7DF1E" size={30} /> },
     { id: 6, skill: "TypeScript", level: "5.87%", icon: <SiTypescript color="#3178C6" size={30} /> },
-    { id: 7, skill: "CSS", level: "4.49%", icon: <FaCss3Alt color="#1572B6" size={30} /> },
-    { id: 8, skill: "EJS", level: "1.47%", icon: <SiEjs size={30} /> },
-    { id: 9, skill: "Kotlin", level: "0.52%", icon: <SiKotlin color="#7F52FF" size={30} /> },
-    { id: 10, skill: "Python", level: "0.44%", icon: <FaPython color="#4B8BBE" size={30} /> },
-    { id: 11, skill: "Ruby", level: "0.32%", icon: <SiRuby color="#CC342D" size={30} /> },
+    { id: 7, skill: "Kotlin", level: "0.52%", icon: <SiKotlin color="#7F52FF" size={30} /> },
+    { id: 8, skill: "Python", level: "0.44%", icon: <FaPython color="#4B8BBE" size={30} /> },
   ]);
 
   const technologies = [
     { id: 1, icon: <SiC size={40} color="#A8B9CC" /> },
     { id: 2, icon: <FaPython size={40} color="#4B8BBE" /> },
-    { id: 3, icon: <FaHtml5 size={40} color="#E34F26" /> },
-    { id: 4, icon: <FaCss3Alt size={40} color="#1572B6" /> },
-    { id: 5, icon: <SiTypescript size={40} color="#3178C6" /> },
-    { id: 6, icon: <FaJs size={40} color="#F7DF1E" /> },
-    { id: 7, icon: <FaPhp size={40} color="#777BB4" /> },
-    { id: 8, icon: <SiSpring size={40} color="#6DB33F" /> },
-    { id: 9, icon: <FaReact size={40} color="#61DBFB" /> },
-    { id: 10, icon: <FaDocker size={40} color="#2496ED" /> },
-    { id: 11, icon: <SiMysql size={40} color="#4479A1" /> },
+    { id: 3, icon: <FaJava size={40} color="#E34F26" /> },
+    { id: 4, icon: <FaJs size={40} color="#F7DF1E" /> },
+    { id: 5, icon: <FaPhp size={40} color="#777BB4" /> },
+    { id: 6, icon: <FaHtml5 size={40} color="#E34F26" /> },
+    { id: 7, icon: <FaCss3Alt size={40} color="#1572B6" /> },
+    { id: 8, icon: <SiTypescript size={40} color="#3178C6" /> },
+    { id: 9, icon: <FaNodeJs size={40} color="#3C873A" /> },
+    { id: 10, icon: <SiSpring size={40} color="#6DB33F" /> },
+    { id: 11, icon: <FaReact size={40} color="#61DBFB" /> },
+    { id: 12, icon: <FaDocker size={40} color="#2496ED" /> },
+    { id: 13, icon: <SiMysql size={40} color="#4479A1" /> },
+    { id: 14, icon: <SiMongodb size={40} color="#47A248" /> },
+    { id: 15, icon: <FaAndroid size={40} color="#3C873A" /> },
+
   ];
 
   return (
