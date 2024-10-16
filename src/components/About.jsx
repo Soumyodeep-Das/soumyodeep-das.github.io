@@ -7,21 +7,30 @@ import Experience from "./Experience";
 
 const About = () => {
     const [activeTab, setActiveTab] = useState('home');
+    const [aboutText, setAboutText] = useState('I am a Full Time MCA student at Jadavpur University.\n Besides of that, I\'m also a Full Stack Web Dev and an Android App Dev. I love to contribute to Open Source projects and I am a huge fan of Linux and Open Source.\n With that I\'m also a Web3, Blockchain and DevOps enthusiast. Currently exploring technologies and trying to learn new things everyday.');
+
+    const handleConditionalRendering = ( tabName ) => {
+        if (activeTab === tabName) {
+            setActiveTab('home');
+        } else {
+            setActiveTab(tabName);
+        }
+    }
 
     const handleEducationTab = () => {
         console.log("Education Tab Clicked");
         // Logic to show the Education component
-        setActiveTab('education');
+        handleConditionalRendering('education');
     }
     const handleSkillsTab = () => {
         console.log("Skills Tab Clicked");
         // Logic to show the Skills component
-        setActiveTab('skills');
+        handleConditionalRendering('skills');
     }
     const handleExperienceTab = () => {
         console.log("Experience Tab Clicked");
         // Logic to show the Experience component
-        setActiveTab('experience');
+        handleConditionalRendering('experience');
     }
     return (
         <>
@@ -46,19 +55,19 @@ const About = () => {
                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-5">
                     {/* text container */}
                     <h1 className="font-bold text-2xl mb-4">About Me</h1>
-                    <p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis minima quia excepturi deserunt cum maxime quo ad accusantium iure, eligendi, consequatur eum fuga molestias unde libero voluptates dolorem ipsam pariatur!</p>
+                    <p className="text-center">{aboutText}</p>
                 </div>
             </div>
             <div className="flex justify-between mx-10 text-center space-x-2">
-                <div className="border w-full py-2 cursor-pointer hover:font-bold" onClick={handleEducationTab}>
+                <div className="border w-full py-2 cursor-pointer hover:font-bold hover:bg-gray-200" onClick={handleEducationTab}>
                     {/* Education */}
                     <h2>Education</h2>
                 </div>
-                <div className="border w-full py-2 cursor-pointer hover:font-bold" onClick={handleSkillsTab}>
+                <div className="border w-full py-2 cursor-pointer hover:font-bold hover:bg-gray-200" onClick={handleSkillsTab}>
                     {/* Skills */}
                     <h2>Skills</h2>
                 </div>
-                <div className="border w-full py-2 cursor-pointer hover:font-bold" onClick={handleExperienceTab}>
+                <div className="border w-full py-2 cursor-pointer hover:font-bold hover:bg-gray-200" onClick={handleExperienceTab}>
                     {/* Experience */}
                     <h2>Experience</h2>
                 </div>

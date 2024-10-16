@@ -11,10 +11,10 @@ const Home = () => {
   useEffect(() => {
     const typed = new Typed(devRef.current, {
       strings: [
-        "Full Stack Developer", 
-        "Student at Jadavpur University", 
-        "Open Source Contributor", 
-        "Android Developer"
+        "a Full Stack Developer", 
+        "a Student at Jadavpur University", 
+        "an Open Source Contributor", 
+        "an Android Developer"
       ], // Strings to display
       // Speed settings, try different values until you get good results
       startDelay: 500,
@@ -45,14 +45,20 @@ const Home = () => {
     {
       id: 2,
       title: "LinkedIn",
-      link: "https://www.linkedin",
+      link: "https://www.linkedin.com/in/soumyodeep-das/",
       logo: "fa-brands text-4xl fa-linkedin-in",
     },
     {
       id: 3,
       title: "Twitter",
-      link: "https://twitter.com/SoumyodeepDas",
+      link: "https://x.com/soumyodeep_das",
       logo: "fa-brands text-4xl fa-twitter",
+    },
+    {
+      id: 4,
+      title: "Telegram",
+      link: "https://t.me/shell_scripter",
+      logo: "fa-brands text-4xl fa-telegram-plane",
     },
   ]);
 
@@ -71,7 +77,7 @@ const Home = () => {
             Hello, I'm Soumyodeep Das
           </h1>
           <p className="text-xl md:text-2xl">
-            I'm a <span ref={devRef}></span>
+            I'm <span ref={devRef}></span>
           </p>
 
           {/* Profile Links */}
@@ -81,6 +87,7 @@ const Home = () => {
                 className="hover:bg-orange-600 border cursor-pointer px-3 py-4 w-14 h-14 rounded-full flex justify-center items-center bg-gray-800 transition"
                 key={profileLink.id}
                 href={profileLink.link}
+                target="_blank"
               >
                 <i className={profileLink.logo}></i>
               </a>
@@ -89,7 +96,7 @@ const Home = () => {
 
           {/* Contact Me Button */}
           <a
-            href="/contact"
+            href="#"
             className="text-lg md:text-2xl mt-5 bg-amber-600 px-5 py-2 rounded-full hover:bg-amber-300 transition"
           >
             Contact Me
