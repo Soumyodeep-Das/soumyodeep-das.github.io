@@ -36,34 +36,48 @@ const Skills = () => {
     { id: 11, icon: <SiMysql size={40} color="#4479A1" /> },
   ];
 
-return (
-    <div className="flex flex-col items-center mt-10 mx-5">
-        <h1 className="font-bold text-3xl text-pink-500 mb-6">Most Used Languages</h1>
-        <div className="bg-gray-900 p-8 rounded-lg shadow-lg max-w-6xl w-2/3"> {/* Increased max-w-4xl to max-w-6xl */}
-            {skillsData.map((skill) => (
-                <div key={skill.id} className="flex items-center mb-4">
-                    <div className="mr-4">{skill.icon}</div>
-                    <span className="flex-1 font-medium text-white">{skill.skill}</span>
-                    <div className="w-1/2 bg-gray-700 h-2 rounded-full mx-2">
-                        <div
-                            className="bg-blue-500 h-2 rounded-full"
-                            style={{ width: skill.level }}
-                        ></div>
-                    </div>
-                    <span className="text-sm text-white">{skill.level}</span>
-                </div>
-            ))}
-        </div>
+  return (
+    <div className="flex flex-col items-center mt-10 px-4 sm:px-8">
+      {/* Heading */}
+      <h1 className="font-bold text-3xl text-pink-500 mb-8 text-center">
+        Most Used Languages
+      </h1>
 
-        <div className="flex mt-10 space-x-6">
-            {technologies.map((tech) => (
-                <div key={tech.id} className="bg-gray-800 p-2 rounded-full">
-                    {tech.icon}
-                </div>
-            ))}
-        </div>
+      {/* Skills List */}
+      <div className="bg-gray-900 p-6 md:p-8 rounded-lg shadow-lg max-w-4xl w-full space-y-6">
+        {skillsData.map((skill) => (
+          <div
+            key={skill.id}
+            className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4"
+          >
+            <div className="shrink-0">{skill.icon}</div>
+            <span className="flex-1 font-medium text-white text-center sm:text-left">
+              {skill.skill}
+            </span>
+            <div className="w-full sm:w-1/2 bg-gray-700 h-2 rounded-full mx-2">
+              <div
+                className="bg-blue-500 h-2 rounded-full"
+                style={{ width: skill.level }}
+              ></div>
+            </div>
+            <span className="text-sm text-white">{skill.level}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Technologies Section */}
+      <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 mt-10">
+        {technologies.map((tech) => (
+          <div
+            key={tech.id}
+            className="bg-gray-800 p-4 rounded-full flex items-center justify-center"
+          >
+            {tech.icon}
+          </div>
+        ))}
+      </div>
     </div>
-);
+  );
 };
 
 export default Skills;

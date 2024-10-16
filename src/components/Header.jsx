@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa"; // Icons for hamburger menu
 
 const Header = () => {
-  const [logo, setLogo] = useState("Soumyodeep Das");
-  const [navLinks, setNavLinks] = useState([
+  const [logo] = useState("Soumyodeep Das");
+  const [navLinks] = useState([
     { name: "Home", link: "/home", id: 1 },
     { name: "About", link: "/about", id: 2 },
     { name: "Skills", link: "/skills", id: 3 },
@@ -10,31 +11,78 @@ const Header = () => {
     { name: "Resume", link: "/resume", id: 5 },
     { name: "Contact", link: "/contact", id: 6 },
   ]);
-  const [actionButton, setActionButton] = useState({
+  const [actionButton] = useState({
     name: "Hire Me",
     link: "/hire",
   });
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <>
-      <div className="header-container flex justify-between px-5 py-2 bg-slate-200">
-        <div className="logo my-2">
-          <h1 className="text-xl font-bold">{logo}</h1>
+      <div className="header-container flex justify-between items-center px-5 py-4 bg-slate-200 shadow-md">
+        {/* Logo */}
+        <div className="logo">
+          <h1 className="text-xl font-bold text-gray-800">{logo}</h1>
         </div>
-        <div className="space-x-12 my-2">
-          {
-            navLinks.map((navLink) => {
-              return (
-                <a href={navLink.link} key={navLink.id} className="text-lg font-semibold  hover:text-amber-600">{navLink.name}</a>
-              )
-            })
-          }
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-8">
+          {navLinks.map((navLink) => (
+            <a
+              href={navLink.link}
+              key={navLink.id}
+              className="text-lg font-semibold text-gray-700 hover:text-amber-600 transition"
+            >
+              {navLink.name}
+            </a>
+          ))}
         </div>
-        <div className="hire-btn pt-3">
-          <a className="hire px-3 py-2 bg-orange-600 rounded-full hover:bg-orange-300" href={actionButton.link}>{actionButton.name}</a>
+
+        {/* Action Button */}
+        <div className="hidden md:block">
+          <a
+            className="px-4 py-2 bg-orange-600 text-white rounded-full hover:bg-orange-400 transition"
+            href={actionButton.link}
+          >
+            {actionButton.name}
+          </a>
+        </div>
+
+        {/* Hamburger Menu (Mobile) */}
+        <div className="md:hidden">
+          <button onClick={toggleMenu} className="text-2xl text-gray-800">
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="flex flex-col items-center bg-slate-100 py-4 space-y-4 md:hidden">
+          {navLinks.map((navLink) => (
+            <a
+              href={navLink.link}
+              key={navLink.id}
+              className="text-lg font-semibold text-gray-700 hover:text-amber-600 transition"
+            >
+              {navLink.name}
+            </a>
+          ))}
+          <a
+            className="px-4 py-2 bg-orange-600 text-white rounded-full hover:bg-orange-400 transition"
+            href={actionButton.link}
+          >
+            {actionButton.name}
+          </a>
+        </div>
+      )}
     </>
   );
-}
+};
 
 export default Header;
