@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
+    const [about, setAbout] = useState("I'm a full-stack developer passionate about building web and mobile applications that make a difference.")
+    const [contactData, setContactData] = useState([
+        {
+            id: 1,
+            platform: "LinkedIn",
+            link: "https://www.linkedin.com/in/soumyodeep-das/",
+        },
+        {
+            id: 2,
+            platform: "Github",
+            link: "https://github.com/Soumyodeep-Das",
+        },
+        {
+            id: 3,
+            platform: "Email",
+            link: "soumyodeep***@gmail.com",
+        },
+    ]);
     return (
         <footer className="bg-gray-900 text-white py-10 mt-10">
             {/* Main Footer Content */}
@@ -10,7 +28,7 @@ const Footer = () => {
                 <div>
                     <h2 className="text-xl font-bold mb-4">About Me</h2>
                     <p className="text-gray-400">
-                        I'm a full-stack developer passionate about building web and mobile applications that make a difference.
+                        {about}
                     </p>
                 </div>
 
@@ -42,17 +60,17 @@ const Footer = () => {
                     <p className="text-gray-400">Feel free to reach out!</p>
                     <ul className="space-y-2">
                         <li>
-                            <a href="mailto:your-email@example.com" className="flex items-center space-x-2 hover:underline">
-                                <FaEnvelope /> <span>your-email@example.com</span>
+                            <a href="mailto:soumyodeep***@gmail.com" className="flex items-center space-x-2 hover:underline">
+                                <FaEnvelope /> <span>sdas@gmail.com</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/username" target="_blank" rel="noreferrer" className="flex items-center space-x-2 hover:underline">
+                            <a href="https://www.linkedin.com/in/soumyodeep-das/" target="_blank" rel="noreferrer" className="flex items-center space-x-2 hover:underline">
                                 <FaLinkedin /> <span>LinkedIn</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="flex items-center space-x-2 hover:underline">
+                            <a href="https://github.com/Soumyodeep-Das" target="_blank" rel="noreferrer" className="flex items-center space-x-2 hover:underline">
                                 <FaGithub /> <span>GitHub</span>
                             </a>
                         </li>
@@ -63,13 +81,13 @@ const Footer = () => {
                 <div>
                     <h2 className="text-xl font-bold mb-4">Follow Me</h2>
                     <div className="flex space-x-4">
-                        <a href="https://linkedin.com/in/username" target="_blank" rel="noreferrer" className="hover:text-blue-400">
+                        <a href="https://www.linkedin.com/in/soumyodeep-das/" target="_blank" rel="noreferrer" className="hover:text-blue-400">
                             <FaLinkedin size={24} />
                         </a>
-                        <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="hover:text-gray-400">
+                        <a href="https://github.com/Soumyodeep-Das" target="_blank" rel="noreferrer" className="hover:text-gray-400">
                             <FaGithub size={24} />
                         </a>
-                        <a href="mailto:your-email@example.com" className="hover:text-red-400">
+                        <a href="mailto:soumyodeep***@gmail.com" className="hover:text-red-400">
                             <FaEnvelope size={24} />
                         </a>
                     </div>
