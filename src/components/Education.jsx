@@ -8,6 +8,8 @@ const Education = () => {
       field: "Computer Application",
       years: "2024-2026",
       institution: "Jadavpur University, Kolkata",
+      cgpa: "Y",
+      cgpaVal: "N/A",
     },
     {
       id: 2,
@@ -15,6 +17,8 @@ const Education = () => {
       field: "Computer Science",
       years: "2021-2024",
       institution: "Vivekananda College, Thakurpukur",
+      cgpa: "Y",
+      cgpaVal: "8.3",
     },
     {
       id: 3,
@@ -22,6 +26,8 @@ const Education = () => {
       field: "Science (PCMB)",
       years: "2019-2021",
       institution: "Khariberia Vivekananda Vidyapith, Budge Budge",
+      cgpa: "N",
+      cgpaVal: "80%",
     },
   ]);
 
@@ -44,6 +50,10 @@ const Education = () => {
             <h3 className="text-gray-400 text-lg mb-2">
               {education.field}
             </h3>
+            {/* cgpa or percentage */}
+            <p className="text-gray-300">
+              {education.cgpa == 'Y' ? `CGPA: ${education.cgpaVal}` : `Percentage: ${education.cgpaVal}`}
+            </p>
             {/* Years */}
             <p className="text-gray-300">{education.years}</p>
             {/* Institution */}
