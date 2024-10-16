@@ -1,8 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import webImage from "../assets/banner_wallpaper.svg";
 import sdasImage from "../assets/480-bg-removed.png";
+import Typed from "typed.js";
 
 const Home = () => {
+
+  // Create Ref Element
+  const devRef = useRef(null);
+
+  useEffect(() => {
+    const typed = new Typed(devRef.current, {
+      strings: [
+        "Full Stack Developer", 
+        "Student at Jadavpur University", 
+        "Open Source Contributor", 
+        "Android Developer"
+      ], // Strings to display
+      // Speed settings, try different values until you get good results
+      startDelay: 500,
+      typeSpeed: 70,
+      backSpeed: 50,
+      backDelay: 100,
+      smartBackspace: true,
+      loop: true,
+      showCursor: true,
+      cursorChar: "!"
+    });
+
+    // Destroying
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+
+
+
   const [profileLinks] = useState([
     {
       id: 1,
@@ -31,7 +63,7 @@ const Home = () => {
           backgroundImage: `url(${webImage})`,
           backgroundSize: "cover",
         }}
-        className="min-h-screen flex flex-col md:flex-row justify-center items-center text-white bg-fixed px-5"
+        className="min-h-[70vh] flex flex-col md:flex-row justify-center items-center text-white bg-fixed px-5"
       >
         {/* Left Section: Text and Profile Links */}
         <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left space-y-6">
@@ -39,7 +71,7 @@ const Home = () => {
             Hello, I'm Soumyodeep Das
           </h1>
           <p className="text-xl md:text-2xl">
-            I'm a Full Stack Developer
+            I'm a <span ref={devRef}></span>
           </p>
 
           {/* Profile Links */}
