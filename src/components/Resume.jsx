@@ -1,4 +1,5 @@
 import React from "react";
+import resumeThumbnail from "../assets/resume-preview.png";
 
 const Resume = () => {
   return (
@@ -9,7 +10,7 @@ const Resume = () => {
         </h2>
 
         <img
-          src="src/assets/resume-preview.png"
+          src={resumeThumbnail}
           alt="Resume Thumbnail"
           className="w-auto h-2/5 rounded-md object-cover"
         />
