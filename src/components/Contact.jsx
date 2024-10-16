@@ -5,17 +5,17 @@ const Contact = () => {
         {
             id: 1,
             platform: "LinkedIn",
-            link: "https://www.linkedin.com/in/username",
+            link: "https://www.linkedin.com/in/soumyodeep-das/",
         },
         {
             id: 2,
             platform: "Github",
-            link: "https://github.com/yourusername",
+            link: "https://github.com/Soumyodeep-Das",
         },
         {
             id: 3,
             platform: "Email",
-            link: "mailto:your-email@example.com",
+            link: "soumyodeep***@gmail.com",
         },
     ]);
 
