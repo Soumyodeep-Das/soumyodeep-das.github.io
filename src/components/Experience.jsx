@@ -4,28 +4,36 @@ const Experience = () => {
   const [experienceData] = useState([
     {
       id: 1,
-      role: "Software Developer",
-      company: "Google",
-      date: "2019 - Present",
+      role: "FrostAngel",
+      company: "FrostHacks",
+      date: "Aug 2024 - Present",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, felis nec lacinia.",
+        "Evangalist of FrostHacks, an in-person Hackathon organised by CNH at AOT.",
     },
     {
       id: 2,
-      role: "Frontend Developer",
-      company: "Facebook",
-      date: "2017 - 2019",
+      role: "KubeCaptain (POC)",
+      company: "Cloud Native Hooghly (CNH)",
+      date: "May 2024 - Present",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, felis nec lacinia.",
+        "Campus Ambassador of CNH, a Cloud Native Community Group, a regional chapter of CNCF.",
     },
     {
       id: 3,
-      role: "Backend Developer",
-      company: "Amazon",
-      date: "2015 - 2017",
+      role: "Advocate",
+      company: "Huddle01",
+      date: "Apr 2024 - Present",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, felis nec lacinia.",
+        "Ambassador of Huddle01, a dRTC service provider Company.",
     },
+    {
+      id: 4,
+      role: "Web Developer Intern",
+      company: "Zudio Development",
+      date: "Mar 2024 - May 2024",
+      description:
+        "Learned MERN Stack and developed some awesome projects with my team.",
+    }
   ]);
 
   return (
