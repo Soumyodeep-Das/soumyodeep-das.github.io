@@ -5,17 +5,42 @@ import Typed from "typed.js";
 
 const Home = () => {
 
+  const [homeTitle, setHomeTitle] = useState('') // Not present in the api
+  const [typedStrings, setTypedStrings] = useState([])
+  const [profileLinksState, setProfileLinksState] = useState([])
+
+  useEffect(() => {
+    const fetchHome = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/home/');
+        const data = await response.json(); 
+        if (data.length > 0) {
+          setTypedStrings(data[0].typedStrings);
+          const profileLinks = data[0].profileLinks.map((link) => ({
+            id: link.id,
+            title: link.title,
+            link: link.link,
+            logo: link.logo,
+          }));
+          setProfileLinksState(profileLinks);
+        } else {
+          console.error('No about data found');
+        }
+      } catch (error) {
+        console.error('Error fetching about data:', error);
+      }
+    };
+
+    fetchHome();
+  }, []);
+
+
   // Create Ref Element
   const devRef = useRef(null);
 
   useEffect(() => {
     const typed = new Typed(devRef.current, {
-      strings: [
-        "a Full Stack Developer", 
-        "a Student at Jadavpur University", 
-        "an Open Source Contributor", 
-        "an Android Developer"
-      ], // Strings to display
+      strings: typedStrings, // Strings to display
       // Speed settings, try different values until you get good results
       startDelay: 500,
       typeSpeed: 70,
@@ -31,36 +56,7 @@ const Home = () => {
     return () => {
       typed.destroy();
     };
-  }, []);
-
-
-
-  const [profileLinks] = useState([
-    {
-      id: 1,
-      title: "Github",
-      link: "https://github.com/Soumyodeep-Das",
-      logo: "fa-brands text-4xl fa-github",
-    },
-    {
-      id: 2,
-      title: "LinkedIn",
-      link: "https://www.linkedin.com/in/soumyodeep-das/",
-      logo: "fa-brands text-4xl fa-linkedin-in",
-    },
-    {
-      id: 3,
-      title: "Twitter",
-      link: "https://x.com/soumyodeep_das",
-      logo: "fa-brands text-4xl fa-twitter",
-    },
-    {
-      id: 4,
-      title: "Telegram",
-      link: "https://t.me/shell_scripter",
-      logo: "fa-brands text-4xl fa-telegram-plane",
-    },
-  ]);
+  }, [typedStrings]);
 
   return (
     <>
@@ -82,7 +78,7 @@ const Home = () => {
 
           {/* Profile Links */}
           <div className="flex space-x-4 mt-3">
-            {profileLinks.map((profileLink) => (
+            {profileLinksState.map((profileLink) => (
               <a
                 className="hover:bg-orange-600 border cursor-pointer px-3 py-4 w-14 h-14 rounded-full flex justify-center items-center bg-gray-800 transition"
                 key={profileLink.id}

@@ -1,15 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import image from "../assets/second-img.jpg"
 import shape from "../assets/graph.png"
 import Education from "./Education";
 import Skills from "./Skills";
 import Experience from "./Experience";
 
+// I am a Full Time MCA student at Jadavpur University.\n Besides of that, I\'m also a Full Stack Web Dev and an Android App Dev. I love to contribute to Open Source projects and I am a huge fan of Linux and Open Source.\n With that I\'m also a Web3, Blockchain and DevOps enthusiast. Currently exploring technologies and trying to learn new things everyday.
+
 const About = () => {
     const [activeTab, setActiveTab] = useState('home');
-    const [aboutText, setAboutText] = useState('I am a Full Time MCA student at Jadavpur University.\n Besides of that, I\'m also a Full Stack Web Dev and an Android App Dev. I love to contribute to Open Source projects and I am a huge fan of Linux and Open Source.\n With that I\'m also a Web3, Blockchain and DevOps enthusiast. Currently exploring technologies and trying to learn new things everyday.');
+    // const [image, setImage] = useState('');
+    // const [shape, setShape] = useState('');
+    const [aboutText, setAboutText] = useState('');
 
-    const handleConditionalRendering = ( tabName ) => {
+    useEffect(() => {
+        const fetchAbout = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/about/');
+                const data = await response.json(); // Convert response to JSON
+
+                if (data.length > 0) {
+                    setAboutText(data[0].aboutText); // Set aboutText from the first entry
+                    // setImage(data[0].image);
+                    // setShape(data[0].shape);
+                } else {
+                    console.error('No about data found');
+                }
+            } catch (error) {
+                console.error('Error fetching about data:', error);
+            }
+        };
+
+        fetchAbout();
+    }, []);
+
+    const handleConditionalRendering = (tabName) => {
         if (activeTab === tabName) {
             setActiveTab('home');
         } else {
