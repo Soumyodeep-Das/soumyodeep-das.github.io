@@ -1,23 +1,31 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 const Contact = () => {
-    const [contactData] = useState([
-        {
-            id: 1,
-            platform: "LinkedIn",
-            link: "https://www.linkedin.com/in/soumyodeep-das/",
-        },
-        {
-            id: 2,
-            platform: "Github",
-            link: "https://github.com/Soumyodeep-Das",
-        },
-        {
-            id: 3,
-            platform: "Email",
-            link: "soumyodeep***@gmail.com",
-        },
+    const [contactData, setContactData] = useState([
+        // {
+        //     id: 1,
+        //     platform: "LinkedIn",
+        //     link: "https://www.linkedin.com/in/soumyodeep-das/",
+        // },
+        // {
+        //     id: 2,
+        //     platform: "Github",
+        //     link: "https://github.com/Soumyodeep-Das",
+        // },
+        // {
+        //     id: 3,
+        //     platform: "Email",
+        //     link: "soumyodeep***@gmail.com",
+        // },
     ]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/api/contact/")
+            .then((response) => response.json())
+            .then((data) => {
+                setContactData(data);
+            });
+    }, []);
 
     const [formData, setFormData] = useState({
         name: "",
@@ -44,7 +52,7 @@ const Contact = () => {
             {/* Contact Links Section */}
             <div className="bg-gray-900 p-8 rounded-lg shadow-lg max-w-6xl w-full sm:w-2/3 mb-10">
                 {contactData.map((contact) => (
-                    <div key={contact.id} className="mb-6">
+                    <div key={contact._id} className="mb-6">
                         <h2 className="font-bold text-xl text-white">{contact.platform}</h2>
                         <a
                             href={contact.link}
@@ -120,7 +128,8 @@ const Contact = () => {
                             onChange={handleChange}
                             rows="5"
                             className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
-                            placeholder="Your Message"
+                            placeholder={`Your Message
+Still Under Development`}
                             required
                         ></textarea>
                     </div>
