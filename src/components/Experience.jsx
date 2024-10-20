@@ -53,7 +53,7 @@ const Experience = () => {
       <div className="bg-gray-900 p-6 sm:p-8 rounded-lg shadow-lg max-w-4xl w-full sm:w-3/4 lg:w-2/3">
         {experienceData.map((experience) => (
           <div
-            key={experience.id}
+            key={experience._id}
             className="mb-8 p-4 sm:p-6 bg-gray-800 rounded-lg"
           >
             <h2 className="font-bold text-xl sm:text-2xl text-white mb-1">
