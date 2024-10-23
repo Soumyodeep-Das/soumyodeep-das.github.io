@@ -1,4 +1,4 @@
-const BASE_API_URL = 'http://localhost:5000/api/';
+const BASE_API_URL = 'https://portfolio-api-two-rho.vercel.app/api/';
 
 const dataFetchTemplate = async (url) => {
     const response = await fetch(`${BASE_API_URL}${url}/`);
