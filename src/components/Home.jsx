@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import webImage from "../assets/banner_wallpaper.svg";
 import sdasImage from "../assets/480-bg-removed.png";
 import Typed from "typed.js";
+import { fetchHomeData } from "../apis/PortFolioApis";
 
 const Home = () => {
 
@@ -12,8 +13,7 @@ const Home = () => {
   useEffect(() => {
     const fetchHome = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/home/');
-        const data = await response.json(); 
+        const data = await fetchHomeData();
         if (data.length > 0) {
           setTypedStrings(data[0].typedStrings);
           const profileLinks = data[0].profileLinks.map((link) => ({

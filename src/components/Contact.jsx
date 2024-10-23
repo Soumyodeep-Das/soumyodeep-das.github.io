@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { fetchContactData } from "../apis/PortFolioApis";
 
 const Contact = () => {
     const [contactData, setContactData] = useState([
@@ -20,11 +21,20 @@ const Contact = () => {
     ]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/contact/")
-            .then((response) => response.json())
-            .then((data) => {
-                setContactData(data);
-            });
+        const fetchContact = async () => {
+            try {
+                const data = await fetchContactData();
+                if (data.length > 0) {
+                    setContactData(data);
+                } else {
+                    console.error("No contact data found");
+                }
+            } catch (error) {
+                console.error("Error fetching contact data:", error);
+            }
+        };
+
+        fetchContact();
     }, []);
 
     const [formData, setFormData] = useState({

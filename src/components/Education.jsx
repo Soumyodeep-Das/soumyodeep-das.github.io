@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { fetchEducationData } from "../apis/PortFolioApis";
 
 const Education = () => {
   const [educationData, setEducationData] = useState([]);
@@ -6,9 +7,8 @@ const Education = () => {
   useEffect(() => {
     const fetchEducation = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/education/');
-            const data = await response.json(); // Convert response to JSON           
-            if (data.length > 0) {
+          const data = await fetchEducationData();  
+          if (data.length > 0) {
                 setEducationData(data);
             } else {
                 console.error('No education data found');

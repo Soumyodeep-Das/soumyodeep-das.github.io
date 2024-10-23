@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { fetchExperienceData } from "../apis/PortFolioApis";
 
 const Experience = () => {
   const [experienceData, setExperienceData] = useState([
@@ -37,11 +38,20 @@ const Experience = () => {
   ]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/experience/")
-      .then((response) => response.json())
-      .then((data) => {
-        setExperienceData(data);
-      });
+    const fetchExperience = async () => {
+      try {
+        const data = await fetchExperienceData();
+        if (data.length > 0) {
+          setExperienceData(data);
+        } else {
+          console.error("No experience data found");
+        }
+      } catch (error) {
+        console.error("Error fetching experience data:", error);
+      }
+    };
+
+    fetchExperience();
   }, []);
 
   return (

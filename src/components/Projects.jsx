@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { fetchProjectsData } from "../apis/PortFolioApis";
 
 const Projects = () => {
   const [projectsData, setProjectData] = useState([
@@ -64,11 +65,20 @@ const Projects = () => {
   ]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/project/")
-      .then((response) => response.json())
-      .then((data) => {
-        setProjectData(data);
-      });
+    const fetchProjects = async () => {
+      try {
+        const data = await fetchProjectsData();
+        if (data.length > 0) {
+          setProjectData(data);
+        } else {
+          console.error("No project data found");
+        }
+      } catch (error) {
+        console.error("Error fetching project data:", error);
+      }
+    };
+
+    fetchProjects();
   }, []);
 
   return (

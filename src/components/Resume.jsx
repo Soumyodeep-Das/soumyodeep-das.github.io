@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from "react";
 import resumeThumbnail from "../assets/resume-preview.png";
+import { fetchResumeData } from "../apis/PortFolioApis";
 
 const Resume = () => {
   const [resumeData, setResumeData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/resume/")
-      .then((response) => response.json())
-      .then((data) => {
-        setResumeData(data[0]);
-      });
+    const fetchResume = async () => {
+      try {
+        const data = await fetchResumeData();
+        if (data.length > 0) {
+          setResumeData(data[0]);
+        } else {
+          console.error("No resume data found");
+        }
+      } catch (error) {
+        console.error("Error fetching resume data:", error);
+      }
+    };
+
+    fetchResume();
   }, []);
 
   return (

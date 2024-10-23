@@ -4,6 +4,7 @@ import shape from "../assets/graph.png"
 import Education from "./Education";
 import Skills from "./Skills";
 import Experience from "./Experience";
+import { fetchAboutData } from "../apis/PortFolioApis";
 
 // I am a Full Time MCA student at Jadavpur University.\n Besides of that, I\'m also a Full Stack Web Dev and an Android App Dev. I love to contribute to Open Source projects and I am a huge fan of Linux and Open Source.\n With that I\'m also a Web3, Blockchain and DevOps enthusiast. Currently exploring technologies and trying to learn new things everyday.
 
@@ -16,9 +17,7 @@ const About = () => {
     useEffect(() => {
         const fetchAbout = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/about/');
-                const data = await response.json(); // Convert response to JSON
-
+                const data = await fetchAboutData();
                 if (data.length > 0) {
                     setAboutText(data[0].aboutText); // Set aboutText from the first entry
                     // setImage(data[0].image);

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaTwitter } from "react-icons/fa";
+import { fetchFooterData } from "../apis/PortFolioApis";
 
 const Footer = () => {
     const [about, setAbout] = useState()
@@ -23,12 +24,21 @@ const Footer = () => {
     ]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/footer/")
-            .then((response) => response.json())
-            .then((data) => {
-                setContactData(data[0].contactData);
-                setAbout(data[0].about);
-            });
+        const fetchFooter = async () => {
+            try {
+                const data = await fetchFooterData();
+                if (data.length > 0) {
+                    setAbout(data[0].about);
+                    setContactData(data[0].contactData);
+                } else {
+                    console.error("No footer data found");
+                }
+            } catch (error) {
+                console.error("Error fetching footer data:", error);
+            }
+        };
+
+        fetchFooter();
     }, []);
 
 
