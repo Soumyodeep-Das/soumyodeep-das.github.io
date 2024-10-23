@@ -1,25 +1,37 @@
-import React, { useState } from "react";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { FaLinkedin, FaGithub, FaEnvelope, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
-    const [about, setAbout] = useState("I'm a full-stack developer passionate about building web and mobile applications that make a difference.")
+    const [about, setAbout] = useState()
+    // I'm a full-stack developer passionate about building web and mobile applications that make a difference.
     const [contactData, setContactData] = useState([
-        {
-            id: 1,
-            platform: "LinkedIn",
-            link: "https://www.linkedin.com/in/soumyodeep-das/",
-        },
-        {
-            id: 2,
-            platform: "Github",
-            link: "https://github.com/Soumyodeep-Das",
-        },
-        {
-            id: 3,
-            platform: "Email",
-            link: "soumyodeep***@gmail.com",
-        },
+        //     {
+        //         id: 1,
+        //         platform: "LinkedIn",
+        //         link: "https://www.linkedin.com/in/soumyodeep-das/",
+        //     },
+        //     {
+        //         id: 2,
+        //         platform: "Github",
+        //         link: "https://github.com/Soumyodeep-Das",
+        //     },
+        //     {
+        //         id: 3,
+        //         platform: "Email",
+        //         link: "soumyodeep***@gmail.com",
+        //     },
     ]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/api/footer/")
+            .then((response) => response.json())
+            .then((data) => {
+                setContactData(data[0].contactData);
+                setAbout(data[0].about);
+            });
+    }, []);
+
+
     return (
         <footer className="bg-gray-900 text-white py-10 mt-10">
             {/* Main Footer Content */}
@@ -59,42 +71,33 @@ const Footer = () => {
                     <h2 className="text-xl font-bold mb-4">Contact</h2>
                     <p className="text-gray-400">Feel free to reach out!</p>
                     <ul className="space-y-2">
-                        <li>
-                            <a href="mailto:soumyodeep***@gmail.com" className="flex items-center space-x-2 hover:underline">
-                                <FaEnvelope /> <span>sdas@gmail.com</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/soumyodeep-das/" target="_blank" rel="noreferrer" className="flex items-center space-x-2 hover:underline">
-                                <FaLinkedin /> <span>LinkedIn</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/Soumyodeep-Das" target="_blank" rel="noreferrer" className="flex items-center space-x-2 hover:underline">
-                                <FaGithub /> <span>GitHub</span>
-                            </a>
-                        </li>
+                        {contactData.map((contact) => (
+                            <li key={contact._id}>
+                                <a href={contact.link} target="_blank" rel="noreferrer" className="flex items-center space-x-2 hover:underline">
+                                    {contact.platform === "LinkedIn" && <FaLinkedin />}
+                                    {contact.platform === "Github" && <FaGithub />}
+                                    {contact.platform === "Email" && <FaEnvelope />}
+                                    {contact.platform === "X" && <FaTwitter />}
+                                    <span>{contact.platform}</span>
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
-
-                {/* Social Media Links */}
                 <div>
                     <h2 className="text-xl font-bold mb-4">Follow Me</h2>
                     <div className="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/soumyodeep-das/" target="_blank" rel="noreferrer" className="hover:text-blue-400">
-                            <FaLinkedin size={24} />
-                        </a>
-                        <a href="https://github.com/Soumyodeep-Das" target="_blank" rel="noreferrer" className="hover:text-gray-400">
-                            <FaGithub size={24} />
-                        </a>
-                        <a href="mailto:soumyodeep***@gmail.com" className="hover:text-red-400">
-                            <FaEnvelope size={24} />
-                        </a>
+                        {contactData.map((contact) => (
+                            <a key={contact._id} href={contact.link} target="_blank" rel="noreferrer" className={`hover:text-${contact.platform === "LinkedIn" ? "blue" : contact.platform === "Github" ? "gray" : contact.platform === "Email" ? "red" : "blue"}-400`}>
+                                {contact.platform === "LinkedIn" && <FaLinkedin size={24} />}
+                                {contact.platform === "Github" && <FaGithub size={24} />}
+                                {contact.platform === "Email" && <FaEnvelope size={24} />}
+                                {contact.platform === "X" && <FaTwitter size={24} />}
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>
-
-            {/* Copyright Section */}
             <div className="mt-8 border-t border-gray-800 pt-4 text-center">
                 <p className="text-gray-500">
                     &copy; 2024 My Portfolio. All rights reserved.
