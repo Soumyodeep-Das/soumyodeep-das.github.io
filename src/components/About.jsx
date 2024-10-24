@@ -6,8 +6,6 @@ import Skills from "./Skills";
 import Experience from "./Experience";
 import { fetchAboutData } from "../apis/PortFolioApis";
 
-// I am a Full Time MCA student at Jadavpur University.\n Besides of that, I\'m also a Full Stack Web Dev and an Android App Dev. I love to contribute to Open Source projects and I am a huge fan of Linux and Open Source.\n With that I\'m also a Web3, Blockchain and DevOps enthusiast. Currently exploring technologies and trying to learn new things everyday.
-
 const About = () => {
     const [activeTab, setActiveTab] = useState('home');
     // const [image, setImage] = useState('');

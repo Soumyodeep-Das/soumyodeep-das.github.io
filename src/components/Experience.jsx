@@ -2,40 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchExperienceData } from "../apis/PortFolioApis";
 
 const Experience = () => {
-  const [experienceData, setExperienceData] = useState([
-    // {
-    //   id: 1,
-    //   role: "FrostAngel",
-    //   company: "FrostHacks",
-    //   date: "Aug 2024 - Present",
-    //   description:
-    //     "Evangalist of FrostHacks, an in-person Hackathon organised by CNH at AOT.",
-    // },
-    // {
-    //   id: 2,
-    //   role: "KubeCaptain (POC)",
-    //   company: "Cloud Native Hooghly (CNH)",
-    //   date: "May 2024 - Present",
-    //   description:
-    //     "Campus Ambassador of CNH, a Cloud Native Community Group, a regional chapter of CNCF.",
-    // },
-    // {
-    //   id: 3,
-    //   role: "Advocate",
-    //   company: "Huddle01",
-    //   date: "Apr 2024 - Present",
-    //   description:
-    //     "Ambassador of Huddle01, a dRTC service provider Company.",
-    // },
-    // {
-    //   id: 4,
-    //   role: "Web Developer Intern",
-    //   company: "Zudio Development",
-    //   date: "Mar 2024 - May 2024",
-    //   description:
-    //     "Learned MERN Stack and developed some awesome projects with my team.",
-    // }
-  ]);
+  const [experienceData, setExperienceData] = useState([]);
 
   useEffect(() => {
     const fetchExperience = async () => {

@@ -2,67 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchProjectsData } from "../apis/PortFolioApis";
 
 const Projects = () => {
-  const [projectsData, setProjectData] = useState([
-    // {
-    //   id: 1,
-    //   title: "RaktSeva",
-    //   description:
-    //     "A centralised platform to find nearby blood donors and blood banks.",
-    //   techStack: "HTML, CSS, JavaScript, Java SpringBoot, MySQL",
-    //   github: "https://github.com/Soumyodeep-Das/RaktSeva",
-    //   live: "https://github.com/Soumyodeep-Das/RaktSeva",
-    // },
-    // {
-    //   id: 2,
-    //   title: "Contact Manager",
-    //   description: "A web application to store and manage all your contacts.",
-    //   techStack: "HTML, CSS, JavaScript, Java SpringBoot, MySQL",
-    //   github: "https://github.com/Soumyodeep-Das/Contact-Manager",
-    //   live: "https://github.com/Soumyodeep-Das/Contact-Manager",
-    // },
-    // {
-    //   id: 3,
-    //   title: "Emotion Seeker",
-    //   description:
-    //     "AI project that predicts user emotion based on real-time video.",
-    //   techStack: "Google Colab, Python, MobileNet",
-    //   github: "https://github.com/Soumyodeep-Das/Emotion-Seeker",
-    //   live: "https://github.com/Soumyodeep-Das/Emotion-Seeker",
-    // },
-    // {
-    //   id: 4,
-    //   title: "Weather App",
-    //   description: "A simple weather app that shows current weather.",
-    //   techStack: "ReactJS, OpenWeatherMap API",
-    //   github: "https://github.com/Soumyodeep-Das/Weather-Forecast-App-ReactJS",
-    //   live: "https://soumyodeep-das.github.io/Weather-Forecast-App-ReactJS/",
-    // },
-    // {
-    //   id: 5,
-    //   title: "Ticket Booking System",
-    //   description: "Train Ticket Booking website.",
-    //   techStack: "HTML, CSS, JavaScript, PHP, MySQL",
-    //   github: "https://github.com/Soumyodeep-Das/TicketBooking",
-    //   live: "https://github.com/Soumyodeep-Das/TicketBooking",
-    // },
-    // {
-    //   id: 6,
-    //   title: "Tic Tac Toe",
-    //   description: "Tic Tac Toe game built using React.js.",
-    //   techStack: "JavaScript, ReactJS",
-    //   github: "https://github.com/Soumyodeep-Das/React-TicTacToe",
-    //   live: "https://soumyodeep-das.github.io/React-TicTacToe/",
-    // },
-    // {
-    //   id: 7,
-    //   title: "URL Shortener",
-    //   description:
-    //     "A URL shortener web application with JWT Auth using Node.js.",
-    //   techStack: "JavaScript, Node.js, Express, MongoDB",
-    //   github: "https://github.com/Soumyodeep-Das/URL-Shortner-JWT-Auth-NodeJs",
-    //   live: "https://github.com/Soumyodeep-Das/URL-Shortner-JWT-Auth-NodeJs",
-    // },
-  ]);
+  const [projectsData, setProjectData] = useState([]);
 
   useEffect(() => {
     const fetchProjects = async () => {

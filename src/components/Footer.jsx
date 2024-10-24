@@ -4,24 +4,7 @@ import { fetchFooterData } from "../apis/PortFolioApis";
 
 const Footer = () => {
     const [about, setAbout] = useState()
-    // I'm a full-stack developer passionate about building web and mobile applications that make a difference.
-    const [contactData, setContactData] = useState([
-        //     {
-        //         id: 1,
-        //         platform: "LinkedIn",
-        //         link: "https://www.linkedin.com/in/soumyodeep-das/",
-        //     },
-        //     {
-        //         id: 2,
-        //         platform: "Github",
-        //         link: "https://github.com/Soumyodeep-Das",
-        //     },
-        //     {
-        //         id: 3,
-        //         platform: "Email",
-        //         link: "soumyodeep***@gmail.com",
-        //     },
-    ]);
+    const [contactData, setContactData] = useState([]);
 
     useEffect(() => {
         const fetchFooter = async () => {
