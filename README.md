@@ -1,4 +1,4 @@
-# Live on: [soumyodeep.tech](soumyodeep.tech)
+# Live on: [soumyodeep.tech](https://www.soumyodeep.tech)
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
