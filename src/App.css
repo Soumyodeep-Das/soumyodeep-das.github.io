@@ -1,0 +1,11 @@
+/* App.css */
+html {
+    scroll-behavior: smooth;
+}
+
+/* App.css */
+
+.scroll-to-top {
+    z-index: 1000;
+    /* Ensure it stays above other elements */
+}
