@@ -92,7 +92,7 @@ const Home = () => {
 
           {/* Contact Me Button */}
           <a
-            href="#"
+            href="#contact"
             className="text-lg md:text-2xl mt-5 bg-amber-600 px-5 py-2 rounded-full hover:bg-amber-300 transition"
           >
             Contact Me

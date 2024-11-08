@@ -13,7 +13,7 @@ const Header = () => {
   ]);
   const [actionButton] = useState({
     name: "Hire Me",
-    link: "/hire",
+    link: "#contact",
   });
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
